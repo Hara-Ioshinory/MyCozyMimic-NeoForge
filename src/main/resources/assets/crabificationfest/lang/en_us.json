@@ -1,6 +1,7 @@
 {
   "crabificationfest.creativetab":          "Crabification Fest",
   "crabificationfest.clawmessage":          "The meat stubbornly hides...",
+
   "item.crabificationfest.crab_roe":        "Crab Roe",
   "item.crabificationfest.coniferous_roll": "Coniferous Roll",
   "item.crabificationfest.crab_ramen":      "Crab Ramen",
@@ -9,5 +10,7 @@
   "item.crabificationfest.raw_claw":        "Raw Claw",
   "item.crabificationfest.fried_claw":      "Fried Claw",
   "item.crabificationfest.gum":             "Coniferous Gum",
-  "item.crabificationfest.raw_crab_meat":   "Crab Meat"
+  "item.crabificationfest.raw_crab_meat":   "Crab Meat",
+
+  "effect.crabificationfest.crab_cadence":  "Crab Cadence"
 }
