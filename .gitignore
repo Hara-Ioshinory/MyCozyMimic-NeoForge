@@ -23,6 +23,7 @@ tests/.eclipse
 #occupational hazards
 /projects/**/*.launch
 /repo/
+run/
 .run
 src/generated/resources/.cache/
 tests/src/generated/resources/.cache/
