@@ -1,24 +1,47 @@
-# Compiled class file
-*.class
+#eclipse
+**/bin
+**/.settings
+**/.classpath
+*.project
+tests/.eclipse
 
-# Log file
-*.log
+#In case people make their workspace in the repo
+/eclipse/
 
-# BlueJ files
-*.ctxt
+#idea
+/.idea
+/*/out
+/classes
+*.iml
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+#gradle
+/build
+/.gradle
+/*/build
+/*/.gradle
 
-# Package Files #
-*.jar
-*.war
-*.nar
-*.ear
-*.zip
-*.tar.gz
-*.rar
+#occupational hazards
+/projects/**/*.launch
+/repo/
+.run
+src/generated/resources/.cache/
+tests/src/generated/resources/.cache/
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-replay_pid*
+#Patch rejects
+#/patches-/
+#*.patch.rej
+#/projects/*/rejects/
+
+# FML changelog
+changelog.txt
+*.py
+*.7z
+/logs/
+
+build
+**/build
+
+**/eclipse/
+**/runs/
+
+**/out/
