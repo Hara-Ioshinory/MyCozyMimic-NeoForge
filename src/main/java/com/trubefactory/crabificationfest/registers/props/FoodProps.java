@@ -1,4 +1,4 @@
-package com.trubefactory.mycozymimic.registers.props;
+package com.trubefactory.crabificationfest.registers.props;
 
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.food.FoodProperties;

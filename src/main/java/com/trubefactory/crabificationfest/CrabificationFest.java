@@ -1,7 +1,8 @@
-package com.trubefactory.mycozymimic;
+package com.trubefactory.crabificationfest;
 
 import com.mojang.logging.LogUtils;
-import com.trubefactory.mycozymimic.init.ModItems;
+import com.trubefactory.crabificationfest.items.ModCreativeModeTab;
+import com.trubefactory.crabificationfest.items.ModItems;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -15,16 +16,17 @@ import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import org.slf4j.Logger;
 
-@Mod(MyCozyMimic.MODID)
-public class MyCozyMimic {
-    public static final String MODID = "mycozymimic";
+@Mod(CrabificationFest.MODID)
+public class CrabificationFest {
+    public static final String MODID = "crabificationfest";
     private static final Logger LOGGER = LogUtils.getLogger();
 
-    public MyCozyMimic(IEventBus modEventBus, ModContainer modContainer) {
+    public CrabificationFest(IEventBus modEventBus, ModContainer modContainer) {
         modEventBus.addListener(this::commonSetup);
         NeoForge.EVENT_BUS.register(this);
 
         ModItems.register(modEventBus);
+        ModCreativeModeTab.register(modEventBus);
 
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
@@ -37,8 +39,7 @@ public class MyCozyMimic {
     public void onServerStarting(ServerStartingEvent event) {
     }
 
-    // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
-    @EventBusSubscriber(modid = MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+    @EventBusSubscriber(modid = MODID, value = Dist.CLIENT)
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {

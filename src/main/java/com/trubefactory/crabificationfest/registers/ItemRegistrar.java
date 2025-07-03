@@ -1,6 +1,6 @@
-package com.trubefactory.mycozymimic.registers;
+package com.trubefactory.crabificationfest.registers;
 
-import com.trubefactory.mycozymimic.registers.props.ItemProps;
+import com.trubefactory.crabificationfest.registers.props.ItemProps;
 import net.minecraft.world.item.Item;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -20,7 +20,7 @@ public class ItemRegistrar {
         return items.register(name, itemSupplier);
     }
 
-    public DeferredItem<Item> regItem(String name) {
+    public DeferredItem<Item> regDef(String name) {
         return regItem(name, props -> {});
     }
 
@@ -28,6 +28,10 @@ public class ItemRegistrar {
         ItemProps builder = ItemProps.create();
         configurator.accept(builder);
         return regMaster(name, () -> new Item(builder.build()));
+    }
+
+    public <T extends Item> DeferredItem<T> regDef(String name, Function<Item.Properties, T> itemFactory) {
+        return regMaster(name, () -> itemFactory.apply(new Item.Properties()));
     }
 
     public <T extends Item> DeferredItem<T> regItem(String name, Function<Item.Properties, T> itemFactory,

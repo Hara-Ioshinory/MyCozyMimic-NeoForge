@@ -1,4 +1,4 @@
-package com.trubefactory.mycozymimic.registers.props;
+package com.trubefactory.crabificationfest.registers.props;
 
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
@@ -33,9 +33,9 @@ public class ItemProps {
     }
 
     public ItemProps food(Consumer<FoodProps> configurator) {
-        this.foodProps = FoodProps.create(); // Создаём новый билдер
-        configurator.accept(this.foodProps); // Конфигурируем
-        return this; // ← Ключевое изменение: возвращаем this для цепочки
+        this.foodProps = FoodProps.create();
+        configurator.accept(this.foodProps);
+        return this;
     }
 
     public Item.Properties build() {
