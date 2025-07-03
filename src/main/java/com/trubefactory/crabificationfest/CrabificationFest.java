@@ -1,10 +1,8 @@
-package com.trubefactory.mycozymimic;
-
-import org.slf4j.Logger;
+package com.trubefactory.crabificationfest;
 
 import com.mojang.logging.LogUtils;
-
-import net.minecraft.client.Minecraft;
+import com.trubefactory.crabificationfest.items.ModCreativeModeTab;
+import com.trubefactory.crabificationfest.items.ModItems;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -16,34 +14,35 @@ import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
+import org.slf4j.Logger;
 
-@Mod(com.trubefactory.mycozymimic.MyCozyMimic.MODID)
-public class MyCozyMimic {
-    public static final String MODID = "examplemod";
+@Mod(CrabificationFest.MODID)
+public class CrabificationFest {
+    public static final String MODID = "crabificationfest";
     private static final Logger LOGGER = LogUtils.getLogger();
 
-    public MyCozyMimic(IEventBus modEventBus, ModContainer modContainer) {
+    public CrabificationFest(IEventBus modEventBus, ModContainer modContainer) {
         modEventBus.addListener(this::commonSetup);
         NeoForge.EVENT_BUS.register(this);
+
+        ModItems.register(modEventBus);
+        ModCreativeModeTab.register(modEventBus);
 
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 
-    private void commonSetup(final FMLCommonSetupEvent event) {
+    private void commonSetup(FMLCommonSetupEvent event) {
 
     }
 
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
-        LOGGER.info("HELLO from server starting");
     }
 
-    @EventBusSubscriber(modid = MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+    @EventBusSubscriber(modid = MODID, value = Dist.CLIENT)
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-            LOGGER.info("HELLO FROM CLIENT SETUP");
-            LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
         }
     }
 }
