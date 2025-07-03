@@ -19,10 +19,13 @@ public class ModCreativeModeTab {
                     .icon(() -> new ItemStack(ModItems.RAW_CLAW.get()))
                     .title(Component.translatable("crabificationfest.creativetab"))
                     .displayItems((itemDisplayParameters, output) -> {
+                        output.accept(ModItems.CRAB_ROE);
                         output.accept(ModItems.CHITIN_SHARDS);
                         output.accept(ModItems.NEEDLES_BUNCH);
                         output.accept(ModItems.GUM);
                         output.accept(ModItems.RAW_CRAB_MEAT);
+                        output.accept(ModItems.CONIFEROUS_ROLL);
+                        output.accept(ModItems.CRAB_RAMEN);
                         output.accept(ModItems.RAW_CLAW);
                         output.accept(ModItems.FRIED_CLAW);
                     })
