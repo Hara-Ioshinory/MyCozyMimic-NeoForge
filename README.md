@@ -1,1 +1,1 @@
-# MyCozyMimic-NeoForge
+# My Cozy Mimic
