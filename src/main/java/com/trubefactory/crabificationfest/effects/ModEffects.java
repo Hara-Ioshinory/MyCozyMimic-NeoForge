@@ -14,7 +14,13 @@ public class ModEffects {
             DeferredRegister.create(BuiltInRegistries.MOB_EFFECT, CrabificationFest.MODID);
 
     public static final Holder<MobEffect> CRAB_CADENCE = MOB_EFFECTS.register("crab_cadence",
+            () -> new CrabCadence(MobEffectCategory.BENEFICIAL, 0x678da4)
+    );
+    public static final Holder<MobEffect> CRABIFICATION = MOB_EFFECTS.register("crabification",
             () -> new CrabCadence(MobEffectCategory.BENEFICIAL, 0x8c3428)
+    );
+    public static final Holder<MobEffect> FRESHNESS = MOB_EFFECTS.register("freshness",
+            () -> new CrabCadence(MobEffectCategory.BENEFICIAL, 0xa3b18b)
     );
 
     public static void register(IEventBus eventBus){

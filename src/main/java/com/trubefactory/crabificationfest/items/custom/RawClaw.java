@@ -24,7 +24,9 @@ public class RawClaw extends Claw {
         initInteractData(player, usedHand);
         if (secHandItem.is(Items.SHEARS)) { player.startUsingItem(usedHand); }
 
-        return super.use(level, player, usedHand);
+        return hasCrabification(player)
+                ? super.use(level, player, usedHand)
+                : InteractionResultHolder.fail(player.getItemInHand(usedHand));
     }
 
     @Override

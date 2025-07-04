@@ -1,6 +1,6 @@
 package com.trubefactory.crabificationfest.items.custom;
 
-import com.trubefactory.crabificationfest.items.ModItems;
+import com.trubefactory.crabificationfest.effects.ModEffects;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
@@ -15,7 +15,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -40,7 +39,9 @@ public class Claw extends CrabMeat {
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand usedHand){
         initInteractData(player, usedHand);
-        return super.use(level, player, usedHand);
+        return hasCrabification(player)
+                ? super.use(level, player, usedHand)
+                : InteractionResultHolder.fail(player.getItemInHand(usedHand));
     }
 
     @Override
@@ -65,6 +66,8 @@ public class Claw extends CrabMeat {
     }
 
     private ItemStack eatClawWithShears(ItemStack offHand, ItemStack stack, Player player, Level level, LivingEntity livingEntity){
+        giveCrabCadence(player, level);
+
         EquipmentSlot slot = player.getMainHandItem() == secHandItem
                 ? EquipmentSlot.MAINHAND
                 : EquipmentSlot.OFFHAND;
@@ -74,8 +77,10 @@ public class Claw extends CrabMeat {
     }
 
     protected ItemStack eatClaw(ItemStack offHand, ItemStack stack, Player player, Level level, LivingEntity livingEntity) {
+        giveCrabCadence(player, level);
+
         if (level.getRandom().nextFloat() < 0.4f && !level.isClientSide()) {
-            offHand.shrink(1);
+            if (!player.isCreative()) { offHand.shrink(1); }
             level.playSound(null, player.getX(), player.getY(), player.getZ(),
                     SoundEvents.ITEM_BREAK, SoundSource.PLAYERS,
                     0.8F, 0.8F + level.getRandom().nextFloat() * 0.4F);
@@ -90,5 +95,36 @@ public class Claw extends CrabMeat {
                 ? player.getOffhandItem()
                 : player.getMainHandItem();
         interactionID = INTERACTION_ITEMS.indexOf(secHandItem.getItem());
+    }
+
+    private void giveCrabCadence(Player player, Level level){
+        player.removeEffect(ModEffects.FRESHNESS);
+        MobEffectInstance effect = player.getEffect(ModEffects.CRAB_CADENCE);
+
+        if (effect != null){
+            int amplifier = effect.getAmplifier();
+            switch (amplifier){
+                case 0: {
+                    player.addEffect(new MobEffectInstance(ModEffects.CRAB_CADENCE, 1200, 1));
+                    break;
+                }
+                case 1: {
+                    player.addEffect(new MobEffectInstance(ModEffects.CRAB_CADENCE, 2400, 2));
+                    if(level.getRandom().nextFloat() < 0.4f){
+                        player.addEffect(new MobEffectInstance(ModEffects.CRABIFICATION, 10000, 0));
+                    }
+                    break;
+                }
+                case 2: {
+                    player.removeEffect(ModEffects.CRAB_CADENCE);
+                    player.addEffect(new MobEffectInstance(ModEffects.CRAB_CADENCE, 2400, 2));
+                    if(level.getRandom().nextFloat() < 0.6f){
+                        player.addEffect(new MobEffectInstance(ModEffects.CRABIFICATION, 10000, 0));
+                    }
+                    break;
+                }
+            }
+        }
+        else { player.addEffect(new MobEffectInstance(ModEffects.CRAB_CADENCE, 800, 0)); }
     }
 }

@@ -1,6 +1,8 @@
 {
   "crabificationfest.creativetab":          "Торжество Крабификации",
   "crabificationfest.clawmessage":          "Мясо упрямо прячется...",
+  "crabificationfest.cadencelost":          "Ритм утерян...",
+  "crabificationfest.freshnesslost":        "Свежесть утеряна...",
 
   "item.crabificationfest.crab_roe":        "Икринка краба",
   "item.crabificationfest.coniferous_roll": "Хвойный ролл",
@@ -12,5 +14,7 @@
   "item.crabificationfest.gum":             "Хвойная жвачка",
   "item.crabificationfest.raw_crab_meat":   "Крабовое мясо",
 
-  "effect.crabificationfest.crab_cadence":  "Ритм клешней"
+  "effect.crabificationfest.crab_cadence":  "Ритм клешней",
+  "effect.crabificationfest.freshness":     "Свежесть",
+  "effect.crabificationfest.crabification": "Крабификация"
 }

@@ -1,6 +1,7 @@
 package com.trubefactory.crabificationfest.items;
 
 import com.trubefactory.crabificationfest.CrabificationFest;
+import com.trubefactory.crabificationfest.effects.ModEffects;
 import com.trubefactory.crabificationfest.items.custom.*;
 import com.trubefactory.crabificationfest.registers.ItemRegistrar;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -24,13 +25,21 @@ public class ModItems {
     // Регистрация простой еды
     public static final DeferredItem<CrabMeat> RAW_CRAB_MEAT = REGISTRAR.regItem("raw_crab_meat", CrabMeat::new,p -> p
             .food(f -> f.nutrition(6).saturation(0.4F)
-    ));
+                    .effect(() -> new MobEffectInstance(ModEffects.CRAB_CADENCE, 1000, 0), 0.6F)
+                    .effect(() -> new MobEffectInstance(MobEffects.HUNGER, 1000), 0.4F)
+            )
+    );
     public static final DeferredItem<CrabMeat> CONIFEROUS_ROLL = REGISTRAR.regItem("coniferous_roll", CrabMeat::new,p -> p
             .food(f -> f.nutrition(8).saturation(0.4F)
-    ));
+                    .effect(() -> new MobEffectInstance(ModEffects.CRAB_CADENCE, 2000, 1), 0.8F)
+            )
+    );
     public static final DeferredItem<CrabMeat> CRAB_RAMEN = REGISTRAR.regItem("crab_ramen", CrabMeat::new, p -> p
-            .food(f -> f.nutrition(10).saturation(0.5F))
+            .food(f -> f.nutrition(10).saturation(0.5F)
+                    .effect(() -> new MobEffectInstance(ModEffects.CRAB_CADENCE, 4000, 2), 1F)
+            )
             .rarity(Rarity.UNCOMMON)
+            .stacksTo(16)
     );
 
 
