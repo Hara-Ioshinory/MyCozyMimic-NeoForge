@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {"item": "minecraft:sweet_berries"},
+    {"item": "crabificationfest:raw_crab_meat"},
+    {"item": "crabificationfest:raw_crab_meat"},
+    {"item": "crabificationfest:needles_bunch"}
+  ],
+  "result": {
+    "count": 1,
+    "id": "crabificationfest:coniferous_roll"
+  }
+}

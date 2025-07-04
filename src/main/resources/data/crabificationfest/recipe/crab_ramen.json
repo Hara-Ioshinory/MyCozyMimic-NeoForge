@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {"item": "minecraft:dried_kelp"},
+    {"item": "crabificationfest:raw_crab_meat"},
+    {"item": "minecraft:bowl"},
+    {"item": "crabificationfest:needles_bunch"},
+    {"item": "minecraft:wheat"}
+  ],
+  "result": {
+    "count": 1,
+    "id": "crabificationfest:crab_ramen"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "crabificationfest.creativetab":          "Торжество Крабификации",
+  "crabificationfest.clawmessage":          "Мясо упрямо прячется...",
+  "crabificationfest.cadencelost":          "Ритм утерян...",
+  "crabificationfest.freshnesslost":        "Свежесть утеряна...",
+
+  "item.crabificationfest.crab_roe":        "Икринка краба",
+  "item.crabificationfest.coniferous_roll": "Хвойный ролл",
+  "item.crabificationfest.crab_ramen":      "Крабовый рамен",
+  "item.crabificationfest.chitin_shards":   "Осколки хитина",
+  "item.crabificationfest.needles_bunch":   "Пучок хвои",
+  "item.crabificationfest.raw_claw":        "Сырая клешня",
+  "item.crabificationfest.fried_claw":      "Запечёная клешня",
+  "item.crabificationfest.gum":             "Хвойная жвачка",
+  "item.crabificationfest.raw_crab_meat":   "Крабовое мясо",
+
+  "effect.crabificationfest.crab_cadence":  "Ритм клешней",
+  "effect.crabificationfest.freshness":     "Свежесть",
+  "effect.crabificationfest.crabification": "Крабификация"
+}

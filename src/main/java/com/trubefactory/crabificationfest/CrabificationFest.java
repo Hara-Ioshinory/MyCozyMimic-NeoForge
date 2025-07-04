@@ -1,6 +1,7 @@
 package com.trubefactory.crabificationfest;
 
 import com.mojang.logging.LogUtils;
+import com.trubefactory.crabificationfest.effects.ModEffects;
 import com.trubefactory.crabificationfest.items.ModCreativeModeTab;
 import com.trubefactory.crabificationfest.items.ModItems;
 import net.neoforged.api.distmarker.Dist;
@@ -27,6 +28,8 @@ public class CrabificationFest {
 
         ModItems.register(modEventBus);
         ModCreativeModeTab.register(modEventBus);
+
+        ModEffects.register(modEventBus);
 
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
